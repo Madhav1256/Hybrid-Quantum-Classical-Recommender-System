@@ -1,0 +1,3 @@
+Dataset,Users,Items,Interactions,Sparsity,Timestamp,Explicit/Implicit,Size,Free,Suitable?
+Amazon_Reviews_2023_All_Beauty,631986,112565,701528,0.99999014,Yes,Explicit,327MB,Yes,Yes
+RetailRocket,1407580,235061,2756101,0.99999167,Yes,Implicit,260MB,Yes (Kaggle),Yes

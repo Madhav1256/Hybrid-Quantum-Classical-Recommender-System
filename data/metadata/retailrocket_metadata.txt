@@ -1,0 +1,18 @@
+RetailRocket Recommender System Dataset
+Source: https://www.kaggle.com/datasets/retailrocket/ecommerce-dataset
+
+Dataset Overview:
+- Number of Users: 1,407,580
+- Number of Items: 235,061
+- Number of Events/Interactions: 2,756,101
+- Event Types: View, Add-to-Cart, Transaction (Implicit Feedback)
+- Date Range: 4.5 months
+- Timestamps available: Yes (UNIX format)
+- Approximate Sparsity: 0.99999167
+- File size: ~260MB (compressed zip)
+- Format: CSV (events.csv, item_properties.csv, category_tree.csv)
+- License/usage: Free for research/non-commercial
+
+Note on Download:
+The RetailRocket dataset is exclusively hosted on Kaggle and requires authentication to download the raw uncompressed 2.75M event files. A tiny processed version (1MB) exists on GitHub (caserec), but it is a toy subset and heavily downsampled, which violates our requirement for highly sparse, large-scale data.
+We must download the full version from Kaggle using `kaggle datasets download retailrocket/ecommerce-dataset` when authenticated.

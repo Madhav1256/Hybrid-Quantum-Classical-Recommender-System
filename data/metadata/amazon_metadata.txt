@@ -1,0 +1,21 @@
+Amazon Reviews 2023 (McAuley Lab / UCSD)
+Source: https://amazon-reviews-2023.github.io/
+Download URL: https://huggingface.co/datasets/McAuley-Lab/Amazon-Reviews-2023
+
+Category: All_Beauty
+- Number of Users: 631,986
+- Number of Items: 112,565
+- Number of Interactions: 701,528
+- Date Range: 1996 - 2023
+- Approximate Sparsity: 0.99999014
+- File size (Reviews): ~327MB
+- Metadata available: Yes (meta_All_Beauty.jsonl)
+- Review text available: Yes
+- Timestamps available: Yes
+- License/usage: Free for research
+- Practicality: Highly practical. At 700k interactions, it is robust enough to demonstrate cold-start and long-tail behaviors on classical GNNs while still being small enough to fit in local memory for quantum graph compilation experiments.
+
+Other Categories (e.g., Electronics):
+- Number of Interactions: 14M+
+- File size: ~7GB
+- Practicality: Too large for rapid hybrid-quantum ablation iterations. All_Beauty is the optimal primary dataset.
