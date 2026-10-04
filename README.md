@@ -39,3 +39,17 @@ This project evaluates the CG-QRH architecture on highly sparse, real-world e-co
    * **Interactions:** 2,756,101
    * **Sparsity:** 0.99999167
    * Provides implicit feedback (Views, Add-to-Carts, Transactions).
+
+## Project Status & Milestones
+
+### ✅ Phase 1: Architecture, Data Prep, and Evaluation Framework (Completed)
+* **System Architecture & Methodology Flow**: Created extensive documentation and Mermaid flowcharts outlining the decoupled CG-QRH architecture in the `docs/` directory.
+* **Data Processing Pipeline**: Developed `src/data_processing/amazon_loader.py` to parse raw JSONL data. Applied a 5-core filter to drastically reduce the extreme sparsity of the `Amazon All_Beauty` dataset (701k interactions $\rightarrow$ 3.3k dense interactions) and outputted a PyTorch Geometric `HeteroData` graph.
+* **Evaluation Metrics**: Implemented the mathematical logic in `src/evaluation/metrics.py` for evaluating the Classical layer (HR@K, NDCG@K) and the Quantum advantage (ILD@K). 
+* **Environment Setup**: Fully configured Python virtual environment with `torch`, `torch_geometric`, and `dwave-ocean-sdk` for seamless execution.
+* **Pitch & Study Guides**: Generated comprehensive presentation material and study guides for methodology validation in the `docs/` directory.
+
+### ⏳ Phase 2: Classical GNN Development (Up Next)
+* Develop the PyTorch implementation of the `LightGCN` model.
+* Train the model on the processed Amazon graph to generate dense user/item embeddings.
+* Implement FAISS (Approximate Nearest Neighbor) for real-time candidate generation.
