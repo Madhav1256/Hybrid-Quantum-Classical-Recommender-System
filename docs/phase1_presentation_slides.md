@@ -20,13 +20,20 @@ Below is the structured data and bullet points for your PowerPoint presentation.
 ---
 
 ### **Slide 3: Input Modelling: Data Preparation**
-* **K-Core Filtering Strategy:** 
-  * Applied an iterative 5-core threshold (removing users/items with < 5 interactions).
-  * *Purpose:* Eliminates the extreme long-tail to ensure the classical model has strong learning signals and isolated dense subgraphs.
-* **Pipeline Execution Results (Amazon All_Beauty):**
-  * **Initial Data:** 701,528 highly-sparse interactions.
-  * **Final Processed Graph:** 357 users, 479 items, 3,315 interactions.
-* **Automation:** Engineered a robust, automated Python pipeline (`amazon_loader.py`) that executes filtering, ID mapping, and graph generation locally.
+* **K-Core Filtering Strategy:** Applied an iterative 5-core threshold to eliminate extreme sparsity.
+* **Execution Script:** `src/data_processing/amazon_loader.py`
+* **Raw Input:** `data/raw/.../All_Beauty.jsonl` (701,528 interactions)
+* **Final Output:** `data/processed/amazon_all_beauty/graph.pt` (PyTorch HeteroData graph)
+
+*(Visual Recommendation: Add a dark-mode screenshot or text block showing our exact pipeline output below)*
+**Pipeline Output Proof:**
+> `Applying 5-core filtering...`
+> `Iteration 1: (11359, 4)`
+> `...`
+> `Iteration 19: (3315, 4)`
+> `Final shape after 5-core filtering: (3315, 4)`
+> `Building PyTorch Geometric HeteroData graph...`
+> `Data processing complete! Processed 357 users and 479 items.`
 
 ---
 
@@ -67,12 +74,20 @@ Below is the structured data and bullet points for your PowerPoint presentation.
 ---
 
 ### **Slide 8: Validation Metrics and Test Plan**
+* **Execution Script:** `src/evaluation/metrics.py` (Contains mathematical logic for automated scoring).
 * **Relevance Metrics (Evaluating the Classical GNN):**
-  * **Hit Ratio (HR@K):** Did the user's true interacted item appear in the Top K list? (Measures baseline retrieval success).
-  * **NDCG@K:** Was the true item ranked near the top? (Measures ranking precision).
+  * **Hit Ratio (HR@K):** Did the user's true interacted item appear in the Top K list? (Retrieval success).
+  * **NDCG@K:** Was the true item ranked near the top? (Ranking precision).
 * **Diversity Metrics (Evaluating the Quantum Advantage):**
   * **Intra-List Diversity (ILD@K):** The average pairwise distance ($1 - \text{Cosine Similarity}$) among all items in a user's final Top K list.
-* **System Constraints:** Tracking QPU Access Time vs. End-to-End Latency to prove scalability.
+
+*(Visual Recommendation: Add this code snippet from our metrics.py to show the exact mathematical execution)*
+**Metrics Implementation Proof:**
+> `def intra_list_diversity_at_k(recommended_list, item_embeddings, k):`
+> `    # Calculates avg pairwise distance (1 - cosine similarity)`
+> `    ...`
+> `    distance = 1.0 - (dot_product / (norm_i * norm_j))`
+> `    diversity_sum += distance`
 
 ---
 
